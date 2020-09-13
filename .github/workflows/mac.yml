@@ -16,9 +16,9 @@ jobs:
     - uses: actions/checkout@v2
     - run: source script-mac.sh
     - name: set up ngrok auth
-    env:
+      env:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }} 
-    run: ngrok authtoken "$NGROK_AUTH_TOKEN"
+      run: ngrok authtoken "$NGROK_AUTH_TOKEN"
     - name: set up ngrok 5900
       run: ngrok tcp 5900 &
     - name: Setup tmate session
