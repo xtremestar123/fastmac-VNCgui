@@ -22,7 +22,7 @@ jobs:
     - name: but wait, there's more
       run: git clone https://github.com/novnc/noVNC.git
     - name: init noVNC
-      run: ./noVNC/utils/launch.sh --listen 8080 --vnc localhost:5900 &
+      run: cd noVNC && ./utils/launch.sh --listen 8080 --vnc localhost:5900 &
     - name: ngrok HTML5 access
       run: ngrok http 8080 &
     - name: you can go by way of http to...
