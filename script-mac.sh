@@ -26,6 +26,3 @@ sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resourc
 
 #install ngrok
 brew cask install ngrok
-
-#what could possibly go wrong?
-sudo rm -rf /Users/runner
