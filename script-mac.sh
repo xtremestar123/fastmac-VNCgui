@@ -28,7 +28,7 @@ sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resourc
 #install ngrok, don't forget your key at https://dashboard.ngrok.com/auth
 brew cask install ngrok
 echo
-echo hey! we're almost there!
+echo hey! we\'re almost there!
 echo you will need to do a couple things from SSH...
 echo sudo echo 7F513D02E4A8C5E2FF1C39567390ADCA \> /Library/Preferences/com.apple.VNCSettings.txt
 echo sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent -console
