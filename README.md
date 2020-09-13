@@ -1,3 +1,14 @@
+# fastmac-gui
+
+> Get a MacOS GUI over VNC, for free, in around 5 minutes
+
+This repo extends upon fastmac, enabling the built in MacOS VNC server, doing a hacky workaround to set a VNC password and an admin user account, and adds ngrok to your system to set up a tcp tunnel manually.
+
+Clone the repo, run the action, when it gives you the SSH address for tmux, remote in and set your ngrok authtoken and ngrok tcp 5900 - then VNC in with password 'hello' and the VNC User account password 'secretpassword'.
+
+MacOS behaves quite weird in the GitHub environment. I've noticed some things (like Safari) don't want to launch right.
+
+----
 # fastmac
 
 > Get a MacOS or Linux shell, for free, in around 2 minutes
