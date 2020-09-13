@@ -19,7 +19,7 @@ sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resourc
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -configure -clientopts -setvncpw -vncpw hello
 #VNC password - http://hints.macworld.com/article.php?story=20071103011608872
 #this sets it to 'hello', use the script linked to set it to your own
-sudo echo 7F513D02E4A8C5E2FF1C39567390ADCA > /Library/Preferences/com.apple.VNCSettings.txt
+#sudo echo 7F513D02E4A8C5E2FF1C39567390ADCA > /Library/Preferences/com.apple.VNCSettings.txt
 
 #Start VNC/reset changes
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent -console
@@ -27,5 +27,10 @@ sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resourc
 
 #install ngrok, don't forget your key at https://dashboard.ngrok.com/auth
 brew cask install ngrok
+
+echo you'll need to do a couple things from SSH...
+echo sudo echo 7F513D02E4A8C5E2FF1C39567390ADCA > /Library/Preferences/com.apple.VNCSettings.txt
+echo sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent -console
+echo sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate
 
 echo At this point ngrok authtoken AUTH_TOKEN_HERE and then ngrok tcp 5900 and hop in, your vnc pass is 'hello' and the vncuser pass is 'secretpassword'
