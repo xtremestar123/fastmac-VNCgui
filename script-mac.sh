@@ -17,7 +17,7 @@ sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resourc
 
 #VNC password - http://hints.macworld.com/article.php?story=20071103011608872
 #this sets it to 'hello', use the script linked to set it to your own
-sudo echo 7F513D02E4A8C5E2FF1C39567390ADCA > /Library/Preferences/com.apple.VNCSettings.txt
+sudo -u root echo 7F513D02E4A8C5E2FF1C39567390ADCA > /Library/Preferences/com.apple.VNCSettings.txt
 
 #Start VNC/reset changes
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent -console
