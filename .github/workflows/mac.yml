@@ -23,5 +23,11 @@ jobs:
       run: ngrok tcp 5900 &
     - name: you can vnc to...
       run: curl --silent http://127.0.0.1:4040/api/tunnels | jq '.tunnels[0].public_url'
+    - name: but wait, there's more
+      run: git clone https://github.com/novnc/noVNC.git
+    - name: init noVNC
+      run: ./noVNC/utils/launch.sh --listen 8080 --vnc localhost:5900 &
+    - name: ngrok HTML5 access
+      run: ngrok tcp 8080 &
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v2
