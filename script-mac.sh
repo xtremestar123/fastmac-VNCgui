@@ -8,7 +8,8 @@ sudo dscl . -create /Users/vncuser RealName "VNC User"
 sudo dscl . -create /Users/vncuser UniqueID 1001
 sudo dscl . -create /Users/vncuser PrimaryGroupID 20
 sudo dscl . -create /Users/vncuser NFSHomeDirectory /Users/vncuser
-sudo dscl . -passwd /Users/vncuser supersecretpassword
+sudo dscl . -passwd /Users/vncuser mypassword
+sudo dscl . -passwd /Users/vncuser mypassword
 sudo createhomedir -c -u vncuser > /dev/null
 
 #Enable VNC
@@ -23,12 +24,5 @@ echo 7F513D02E4A8C5E2FF1C39567390ADCA | sudo tee /Library/Preferences/com.apple.
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent -console
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate
 
-#install ngrok, don't forget your key at https://dashboard.ngrok.com/auth
+#install ngrok
 brew cask install ngrok
-echo
-echo hey! we\'re almost there!
-echo you will need to do a couple things from SSH...
-echo ngrok authtoken YOUR_AUTHTOKEN_HERE
-echo ngrok tcp 5900
-echo
-echo Then VNC in from the ngrok tcp address - your vnc password is hello and the password for vncuser is secretpassword
