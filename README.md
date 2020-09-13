@@ -7,7 +7,7 @@ This repo extends upon fastmac, enabling the built in MacOS VNC server, doing a 
 Things you'll need to do:
 
 * Clone this repo
-* Add a secret called NGROK_AUTH_KEY with your auth key from https://dashboard.ngrok.com/auth
+* Add a secret called NGROK_AUTH_TOKEN with your auth key from https://dashboard.ngrok.com/auth
 * Start the workflow (as described below)
 
 Once the flow is started and you're in the status, you can view the 'you can VNC to...' section for your ngrok tunnel VNC address.
