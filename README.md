@@ -4,9 +4,15 @@
 
 This repo extends upon fastmac, enabling the built in MacOS VNC server, doing a hacky workaround to set a VNC password and an admin user account, and adds ngrok to your system to set up a tcp tunnel manually.
 
-Clone the repo, run the action, when it gives you the SSH address for tmux, remote in and set your ngrok authtoken and ngrok tcp 5900 - then VNC in with password 'hello' and the VNC User account password 'secretpassword'.
+Things you'll need to do:
 
-MacOS behaves quite weird in the GitHub environment. I've noticed some things (like Safari) don't want to launch right.
+* Clone this repo
+* Add a secret called NGROK_AUTH_KEY with your auth key from https://dashboard.ngrok.com/auth
+* Start the workflow (as described below)
+
+Once the flow is started and you're in the status, you can view the 'you can VNC to...' section for your ngrok tunnel VNC address.
+
+This script sets the VNC password to "hello" and the user password for VNC User to "mypassword". These are ephemeral VMs, don't do important stuff on them!
 
 ----
 # fastmac
