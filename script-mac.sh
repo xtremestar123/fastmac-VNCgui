@@ -33,4 +33,4 @@ echo sudo echo 7F513D02E4A8C5E2FF1C39567390ADCA > /Library/Preferences/com.apple
 echo sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent -console
 echo sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate
 
-echo At this point ngrok authtoken AUTH_TOKEN_HERE and then ngrok tcp 5900 and hop in, your vnc pass is 'hello' and the vncuser pass is 'secretpassword'
+echo At this point ngrok authtoken AUTH_TOKEN_HERE and then ngrok tcp 5900 and hop in, your vnc pass is "hello" and the vncuser pass is "secretpassword"
