@@ -7,7 +7,7 @@ This repo extends upon fastmac, enabling the built in MacOS VNC server, doing a 
 Things you'll need to do:
 
 * Clone this repo
-* Add three secrets to your cloned repo:
+* Add these secrets to your cloned repo:
   * `NGROK_AUTH_TOKEN` with your auth key from https://dashboard.ngrok.com/auth
   * `VNC_USER_PASSWORD` with the desired password for the "VNC User" (`vncuser`) account
   * `VNC_PASSWORD` for the VNC-only password
@@ -18,6 +18,17 @@ Once the flow is started and you're in the status, you can view the 'you can VNC
 TODO: find a better way to somehow broadcast that ngrok is up and has a tunnel address
 
 *NOTE* If you're using Apple Screen Sharing or RealVNC Viewer, use the system username and password ("VNC User"/your set password), NOT your VNC-only password!
+
+# Telegram Integration (req'd setup)
+This branch, `telegram-notifications`, uses the code from https://github.com/fabianonline/telegram.sh to provide Telegram notifications of script up and hostname/port to connect in.
+
+To set up the bot, you'll need to reach out to @BotFather on Telegram and create a new bot. You'll be given a token string, which must go in a secret called `TELEGRAM_TOKEN`.
+
+Message the bot you've set up at least once to get it 'intialized' for yourself.
+
+Set your user ID in the secret `TELEGRAM_CHAT`. If you add the bot to a channel or group, you can also use the ID of a given channel or group. (Getting your user ID / chat ID is beyond scope of this document.)
+
+It's that easy, you'll get a ping from the bot when the VM is starting and a ping with the tcp:// info from ngrok.
 
 ----
 # Lessons learned in my hacking this to bits:
