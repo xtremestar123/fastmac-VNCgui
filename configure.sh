@@ -2,7 +2,7 @@
 
 #Telegram Proof of Life check
 chmod +x telegram
-./telegram -t $4 -c $5 -M "*$(date)*"$'\n'$'\n'"macOS VM \`$(hostname)\` is starting up, stand by _(approx 2 minutes)_"
+./telegram -t $4 -c $5 -M "*$(date)*"$'\n'"macOS VM \`$(hostname)\` is starting up, stand by _(approx 2 minutes)_"
 
 #disable spotlight indexing
 sudo mdutil -i off -a
@@ -38,4 +38,4 @@ ngrok tcp 5900 &
 
 sleep 3
 
-./telegram -t $4 -c $5 -M "*$(date)*"$'\n'$'\n'"macOS VM \`$(hostname)\` is online, VNC is available now at"$'\n'"$(curl --silent http://127.0.0.1:4040/api/tunnels | jq '.tunnels[0].public_url')"
+./telegram -t $4 -c $5 -M "*$(date)*"$'\n'"macOS VM \`$(hostname)\` is online, VNC is available now at"$'\n'"\`$(curl --silent http://127.0.0.1:4040/api/tunnels | jq '.tunnels[0].public_url')\`"
