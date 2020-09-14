@@ -11,6 +11,8 @@ Things you'll need to do:
   * `NGROK_AUTH_TOKEN` with your auth key from https://dashboard.ngrok.com/auth
   * `VNC_USER_PASSWORD` with the desired password for the "VNC User" (`vncuser`) account
   * `VNC_PASSWORD` for the VNC-only password
+  * `TELEGRAM_TOKEN` for Telegram bot auth (see below)
+  * `TELEGRAM_CHAT` for a Telegram user/chat (see below)
 * Start the workflow (as described below)
 
 Once the flow is started and you're in the status, you can view the 'you can VNC to...' section in the workflow log for your ngrok tunnel VNC address.
@@ -28,7 +30,7 @@ Message the bot you've set up at least once to get it 'intialized' for yourself.
 
 Set your user ID in the secret `TELEGRAM_CHAT`. If you add the bot to a channel or group, you can also use the ID of a given channel or group. (Getting your user ID / chat ID is beyond scope of this document.)
 
-It's that easy, you'll get a ping from the bot when the VM is starting and a ping with the tcp:// info from ngrok.
+It's that easy, you'll get a ping from the bot when the VM is starting and a ping with the VNC user info from ngrok.
 
 ----
 # Lessons learned in my hacking this to bits:
