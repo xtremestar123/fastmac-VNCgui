@@ -9,15 +9,11 @@ Things you'll need to do:
 * Clone this repo
 * Add these secrets to your cloned repo:
   * `NGROK_AUTH_TOKEN` with your auth key from https://dashboard.ngrok.com/auth
-  * `VNC_USER_PASSWORD` with the desired password for the "VNC User" (`vncuser`) account
-  * `VNC_PASSWORD` for the VNC-only password
   * `TELEGRAM_TOKEN` for Telegram bot auth (see below)
   * `TELEGRAM_CHAT` for a Telegram user/chat (see below)
 * Start the workflow (as described below)
 
-Once the flow is started and you're in the status, you can view the 'you can VNC to...' section in the workflow log for your ngrok tunnel VNC address.
-
-TODO: find a better way to somehow broadcast that ngrok is up and has a tunnel address
+Once the flow is started, you'll get Telegram messages with startup and username/password/host information.
 
 *NOTE* If you're using Apple Screen Sharing or RealVNC Viewer, use the system username and password ("VNC User"/your set password), NOT your VNC-only password!
 
