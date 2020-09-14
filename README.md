@@ -2,17 +2,21 @@
 
 > Get a MacOS GUI over VNC, for free, in around 5 minutes
 
-This repo extends upon fastmac, enabling the built in MacOS VNC server, doing a hacky workaround to set a VNC password and an admin user account, and adds ngrok to your system to set up a tcp tunnel manually.
+This repo extends upon fastmac, enabling the built in MacOS VNC server, doing a hacky trick to set a VNC password and a new admin user account, and adds ngrok to your system to set up a tcp tunnel for VNC/Apple Screen Sharing.
 
 Things you'll need to do:
 
 * Clone this repo
-* Add a secret called NGROK_AUTH_TOKEN with your auth key from https://dashboard.ngrok.com/auth
+* Add three secrets to your cloned repo:
+  * `NGROK_AUTH_TOKEN` with your auth key from https://dashboard.ngrok.com/auth
+  * `VNC_USER_PASSWORD` with the desired password for the "VNC User" (`vncuser`) account
+  * `VNC_PASSWORD` for the VNC-only password
 * Start the workflow (as described below)
 
-Once the flow is started and you're in the status, you can view the 'you can VNC to...' section for your ngrok tunnel VNC address.
+Once the flow is started and you're in the status, you can view the 'you can VNC to...' section in the workflow log for your ngrok tunnel VNC address.
 
-This script sets the VNC password to "hello" and the user password for VNC User to "mypassword". These are ephemeral VMs, don't do important stuff on them!
+*NOTE* If you're using Apple Screen Sharing or RealVNC Viewer, use the system username and password ("VNC User"/your set password), NOT your VNC-only password!
+
 
 ----
 # fastmac
@@ -61,16 +65,6 @@ Instead of using ssh in your terminal, you can paste the "WebURL" value into you
 Your session will run for up to six hours. When you're finished, you should close it, since otherwise you're taking up a whole computer that someone else could otherwise be using!
 
 To close the session, click the red "Cancel workflow" on the right-hand side of the Actions screen (the one you copied the `ssh` line from).
-
-## Use a Linux (Ubuntu) shell
-
-If you need to access a Linux shell, instead of MacOS, follow all the same steps as above, except <a href="../../actions?query=workflow%3Alinux">click this link</a> instead of the one mentioned above. And click "linux" instead of "mac" to access your session.
-
-## Using ssh to connect to other servers
-
-You can ssh from your fastmac/linux instance to your servers. First you have to set up a GitHub secret containing the ssh private key needed to connect to your server. To set one up, [click here](../../settings/secrets/new) to create a new secret, name it `SSH_KEY` (it must be that exact name), and paste your private key file (e.g. `~/.ssh/id_rsa`) contents as the value. Save your secret, and then when you connect using the fastmac/linux steps, you'll find that your terminal has your key ready for use.
-
-**NB**: anyone who has access to your GitHub account can access your `SSH_KEY` contents by running this action. Therefore, you should only use a key which is not security sensitive, or at the very least ensure that it is password protected with a strong password.
 
 ## Auto-configuration of your sessions
 
