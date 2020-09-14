@@ -36,4 +36,6 @@ brew cask install ngrok
 ngrok authtoken $3
 ngrok tcp 5900 &
 
+sleep 3
+
 ./telegram -t $4 -c $5 "Your VM is up, access it at $(curl --silent http://127.0.0.1:4040/api/tunnels | jq '.tunnels[0].public_url')"
