@@ -1,10 +1,8 @@
 #configure.sh VNC_USER_PASSWORD VNC_PASSWORD NGROK_AUTH_TOKEN TELEGRAM_TOKEN TELEGRAM_CHAT
 
-echo Testing, TELEGRAM_CHAT is $5 "$5"
-
 #Telegram Proof of Life check
 chmod +x telegram
-./telegram -t $4 -c $5 "Hello, world"
+./telegram -t $4 -c $5 "Mac VM is starting up, stand by"
 
 #disable spotlight indexing
 sudo mdutil -i off -a
@@ -37,3 +35,5 @@ brew cask install ngrok
 #configure ngrok and start it
 ngrok authtoken $3
 ngrok tcp 5900 &
+
+./telegram -t $4 -c $5 "Your VM is up, access it at $(curl --silent http://127.0.0.1:4040/api/tunnels | jq '.tunnels[0].public_url')"
