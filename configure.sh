@@ -1,4 +1,4 @@
-#configure.sh VNC_USER_PASSWORD VNC_PASSWORD NGROK_AUTH_TOKEN TELEGRAM_TOKEN TELEGRAM_CHAT
+#configure.sh NGROK_AUTH_TOKEN TELEGRAM_TOKEN TELEGRAM_CHAT
 #let's make some random passwords
 
 USERPASSWORD=$(openssl rand -base64 16)
@@ -6,7 +6,7 @@ VNCPASSWORD=$(openssl rand -base64 16)
 
 #Telegram Proof of Life check
 chmod +x telegram
-./telegram -t $4 -c $5 -M "*$(date)*"$'\n'"macOS VM \`$(hostname)\` is starting up, stand by _(approx 2 minutes)_"
+./telegram -t $2 -c $3 -M "*$(date)*"$'\n'"macOS VM \`$(hostname)\` is starting up, stand by _(approx 2 minutes)_"
 
 #disable spotlight indexing
 sudo mdutil -i off -a
@@ -37,9 +37,9 @@ sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resourc
 brew cask install ngrok
 
 #configure ngrok and start it
-ngrok authtoken $3
+ngrok authtoken $1
 ngrok tcp 5900 &
 
 sleep 3
 
-./telegram -t $4 -c $5 -M "*$(date)*"$'\n'"macOS VM \`$(hostname)\` is online, VNC is available now at \`$(curl --silent http://127.0.0.1:4040/api/tunnels | jq '.tunnels[0].public_url' | sed 's .\{7\}  ' | tr -d \")\`"$'\n'"*Your password to the* \`VNC User\` *account is* \`$(echo $USERPASSWORD)\`."$'\n'"Your VNC Basic Auth password is \`$(echo $VNCPASSWORD)\`."
+./telegram -t $2 -c $3 -M "*$(date)*"$'\n'"macOS VM \`$(hostname)\` is online, VNC is available now at \`$(curl --silent http://127.0.0.1:4040/api/tunnels | jq '.tunnels[0].public_url' | sed 's .\{7\}  ' | tr -d \")\`"$'\n'"*Your password to the* \`VNC User\` *account is* \`$(echo $USERPASSWORD)\`"$'\n'"Your VNC Basic Auth password is \`$(echo $VNCPASSWORD)\`"
