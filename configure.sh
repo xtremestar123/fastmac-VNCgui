@@ -1,5 +1,7 @@
 #configure.sh VNC_USER_PASSWORD VNC_PASSWORD NGROK_AUTH_TOKEN TELEGRAM_TOKEN TELEGRAM_CHAT
 
+echo Testing, TELEGRAM_CHAT is $5 "$5"
+
 #Telegram Proof of Life check
 chmod +x telegram
 ./telegram -t $4 -c $5 "Hello, world"
