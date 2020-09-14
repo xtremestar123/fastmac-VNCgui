@@ -1,6 +1,6 @@
 # fastmac-gui
 
-> Get a MacOS GUI over VNC, for free, in around 5 minutes
+> Get a MacOS desktop over VNC, for free, in around 5 minutes
 
 This repo extends upon fastmac, enabling the built in MacOS VNC server, doing a hacky trick to set a VNC password and a new admin user account, and adds ngrok to your system to set up a tcp tunnel for VNC/Apple Screen Sharing.
 
@@ -15,8 +15,32 @@ Things you'll need to do:
 
 Once the flow is started and you're in the status, you can view the 'you can VNC to...' section in the workflow log for your ngrok tunnel VNC address.
 
+TODO: find a better way to somehow broadcast that ngrok is up and has a tunnel address
+
 *NOTE* If you're using Apple Screen Sharing or RealVNC Viewer, use the system username and password ("VNC User"/your set password), NOT your VNC-only password!
 
+----
+# Lessons learned in my hacking this to bits:
+
+## We don't know the password to `runner`.
+Okay, let's reset the passwor-
+
+    # passwd runner
+    Changing password for runner.
+    Enter old password:
+
+... right. macOS, at some point, implemented SecureToken-based users. You can't reset the password with `passwd`, it asks for your old password -- even trying to change it from root!
+
+Workaround: Create a new user, `VNC User` aka `vncuser`. We don't *really* need to run as runner, plus, we get the 'out of box' new user setup when we VNC in. Because we're root... we can just straight up add new users. Early iterations of this script I was still learning how to add users and got to see weird behavior when macOS doesn't have a home folder for a user (dumped right to a non-working desktop, for instance).
+
+## macOS Catalina won't let you purportedly configure VNC from the CLI, or at least, set the password anymore...
+
+`Warning: macos 10.14 and later only allows control if Screen Sharing is enabled through System Preferences`
+
+Easy fix: set the password by hand by hashing it into the preferences file. See http://hints.macworld.com/article.php?story=20071103011608872.
+
+## VNC is slow.
+Well, this thing isn't exactly GPU accelerated. It's running on an ESXi powered Mac sitting at MacStadium...
 
 ----
 # fastmac
