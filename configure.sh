@@ -1,6 +1,8 @@
 #configure.sh VNC_USER_PASSWORD VNC_PASSWORD NGROK_AUTH_TOKEN TELEGRAM_TOKEN TELEGRAM_CHAT
 
-telegram -t $4 -c $5 "Hello, world"
+#Telegram Proof of Life check
+chmod +x telegram
+./telegram -t $4 -c $5 "Hello, world"
 
 #disable spotlight indexing
 sudo mdutil -i off -a
