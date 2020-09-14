@@ -42,4 +42,4 @@ ngrok tcp 5900 &
 
 sleep 3
 
-./telegram -t $4 -c $5 -M "*$(date)*"$'\n'"macOS VM \`$(hostname)\` is online, VNC is available now at \`$(curl --silent http://127.0.0.1:4040/api/tunnels | jq '.tunnels[0].public_url' | sed 's .\{7\}  ' | tr -d \")\`"$'\n'"*Your password to the* \`VNC User\` *account is* \`$(echo $USERPASSWORD)`."$'\n'"Your VNC Basic Auth password is \`$(echo $VNCPASSWORD)\`."
+./telegram -t $4 -c $5 -M "*$(date)*"$'\n'"macOS VM \`$(hostname)\` is online, VNC is available now at \`$(curl --silent http://127.0.0.1:4040/api/tunnels | jq '.tunnels[0].public_url' | sed 's .\{7\}  ' | tr -d \")\`"$'\n'"*Your password to the* \`VNC User\` *account is* \`$(echo $USERPASSWORD)\`."$'\n'"Your VNC Basic Auth password is \`$(echo $VNCPASSWORD)\`."
